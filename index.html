@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Premium To-Do Experience</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>TaskFlow</h1>
+                <p id="current-date">Tuesday, 28 December</p>
+            </div>
+            <div class="header-actions">
+                <!-- Potential for Theme Toggle or Settings in V2 -->
+            </div>
+        </header>
+
+        <section class="stats-dashboard">
+            <div class="stat-card total">
+                <div class="icon-wrapper"><i class="fas fa-tasks"></i></div>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-count">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+            </div>
+            <div class="stat-card completed">
+                <div class="icon-wrapper"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-info">
+                    <span class="stat-value" id="completed-count">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+            <div class="stat-card pending">
+                <div class="icon-wrapper"><i class="fas fa-clock"></i></div>
+                <div class="stat-info">
+                    <span class="stat-value" id="pending-count">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="input-section">
+            <div class="input-wrapper">
+                <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off">
+                <button id="add-btn" aria-label="Add Task">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+        </section>
+
+        <section class="list-section">
+            <ul id="task-list" class="task-list">
+                <!-- Tasks injected here -->
+            </ul>
+            
+            <div class="empty-state" id="empty-state">
+                <div class="empty-img">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>All Caught Up!</h3>
+                <p>You have no tasks on your list.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Task</h2>
+            <input type="text" id="edit-input" placeholder="Update your task...">
+            <div class="modal-actions">
+                <button id="cancel-edit-btn">Cancel</button>
+                <button id="save-edit-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
